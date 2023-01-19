@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
@@ -35,9 +34,9 @@ export class LoginComponent implements OnInit {
     }
     if(this.loginForm.controls['username'].value == LoginComponent.user.username &&
     this.loginForm.controls['password'].value == LoginComponent.user.password){
-      localStorage.setItem('username', this.loginForm.controls['username'].value);
-      this.router.navigate(['home']);
-    }else{
+    localStorage.setItem('username', this.loginForm.controls['username'].value);
+    this.router.navigate(['home']);
+  }else{
       this.invalidLogin = true;
       alert("Invalid credentials.")
     }
